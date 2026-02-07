@@ -1,21 +1,3 @@
-// import Link from "next/link";
-
-// export default function Home() {
-//   return (
-//     <div className="">
-//     <main className="flex min-h-screen items-center justify-center">
-//       <h1 className="text-4xl font-bold text-blue-600">
-//         Next.js 15 E-Commerce 🚀
-//       </h1>
-//       <Link href="/my-store" className="ml-4 text-xl underline">
-//         View Products
-//       </Link>
-//     </main>
-//     </div>
-//   );
-// }
-
-
 'use client'
 
 import { useEffect, useState } from 'react'
