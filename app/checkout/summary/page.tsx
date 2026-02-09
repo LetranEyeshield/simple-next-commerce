@@ -39,7 +39,7 @@ export default function CheckoutSummaryPage() {
 
   const handleCheckout = async () => {
     try {
-      if (!form.firstName || !form.lastName || !form.address || !form.contactNumber) {
+      if (!form.firstName || !form.lastName || !form.address || !form.contactNumber || !form.email) {
         alert('Please fill required fields')
         return
       }
@@ -155,7 +155,7 @@ export default function CheckoutSummaryPage() {
 
             <input
               name="email"
-              placeholder="Email (optional)"
+              placeholder="Email *"
               onChange={handleChange}
               className="w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
             />

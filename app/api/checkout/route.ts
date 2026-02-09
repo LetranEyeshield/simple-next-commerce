@@ -110,7 +110,8 @@ export async function POST(req: Request) {
 
       expand: ['line_items'],
 
-      customer_email: customer?.email || undefined,
+      //optional - include customer email if available for better tracking and communication
+      //customer_email: customer?.email || undefined,
 
       // metadata: {
       //   firstName: customer.firstName,
@@ -125,6 +126,7 @@ export async function POST(req: Request) {
   middleName: customer.middleName || '',
   lastName: customer.lastName,
   address: customer.address,
+  email: customer.email,
   contactNumber: customer.contactNumber,
   items: JSON.stringify(
     items.map((item: { _id: String; name: String; price: Number; quantity: Number }) => ({

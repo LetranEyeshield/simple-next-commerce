@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useCartStore } from '@/app/store/cartStore'
 
+
 export default function Navbar() {
   const count = useCartStore(state =>
     state.items.reduce((sum, i) => sum + i.quantity, 0)
