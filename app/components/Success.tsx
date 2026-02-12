@@ -71,43 +71,71 @@ export default function SuccessComponent() {
   }
 
   return (
-    <main className="flex min-h-[60vh] items-center justify-center px-4">
-      <div className="max-w-md rounded-2xl border bg-white p-8 text-center shadow-sm">
-        <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100 text-2xl">
-          ✅
-        </div>
+    // <main className="flex min-h-[60vh] items-center justify-center px-4">
+    //   <div className="max-w-md rounded-2xl border bg-white p-8 text-center shadow-sm">
+    //     <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100 text-2xl">
+    //       ✅
+    //     </div>
 
-        <h1 className="text-2xl font-bold text-gray-900">
-          Payment Successful
-        </h1>
+    //     <h1 className="text-2xl font-bold text-gray-900">
+    //       Payment Successful
+    //     </h1>
 
-        <p className="mt-2 text-sm text-gray-600">
-          Thank you for your order! Your payment has been confirmed.
-        </p>
+    //     <p className="mt-2 text-sm text-gray-600">
+    //       Thank you for your order! Your payment has been confirmed.
+    //     </p>
 
-        <div className="mt-6 flex justify-center gap-3">
-          {/* <Link
-            href="/"
-            className="rounded-lg bg-black px-6 py-2 text-sm font-medium text-white transition hover:bg-gray-800"
-          >
-            Continue Shopping
-          </Link> */}
+    //     <div className="mt-6 flex justify-center gap-3">
+    //       {/* <Link
+    //         href="/"
+    //         className="rounded-lg bg-black px-6 py-2 text-sm font-medium text-white transition hover:bg-gray-800"
+    //       >
+    //         Continue Shopping
+    //       </Link> */}
 
-          {/* <Link
-            href="/"
-            className="rounded-lg border px-6 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100"
-          >
-            Go to Homepage
-          </Link> */}
+    //       {/* <Link
+    //         href="/"
+    //         className="rounded-lg border px-6 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100"
+    //       >
+    //         Go to Homepage
+    //       </Link> */}
 
-            <Link
-            href="/"
-            className="rounded-lg bg-black px-6 py-2 text-sm font-medium text-white transition hover:bg-gray-800"
-          >
-            Back To Shop
-          </Link>
-        </div>
-      </div>
-    </main>
+    //         <Link
+    //         href="/"
+    //         className="rounded-lg bg-black px-6 py-2 text-sm font-medium text-white transition hover:bg-gray-800"
+    //       >
+    //         Back To Shop
+    //       </Link>
+    //     </div>
+    //   </div>
+    // </main>
+    //
+    //
+    //
+    //NEW UI
+    <main className="min-h-screen bg-neutral-50 flex items-center justify-center px-6">
+  <div className="max-w-md w-full rounded-3xl border bg-white p-10 text-center shadow-lg">
+
+    <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-3xl">
+      ✓
+    </div>
+
+    <h1 className="text-2xl font-bold text-gray-900">
+      Payment Successful
+    </h1>
+
+    <p className="mt-3 text-gray-600">
+      Thank you for your order. Your payment has been confirmed and your items are being processed.
+    </p>
+
+    <Link
+      href="/"
+      className="mt-8 inline-flex w-full justify-center rounded-xl bg-black py-3 text-white transition hover:bg-gray-800"
+    >
+      Back to Shop
+    </Link>
+  </div>
+</main>
+
   )
 }

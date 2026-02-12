@@ -67,116 +67,217 @@ export default function CheckoutSummaryPage() {
   }
 
   return (
-    <main className="mx-auto max-w-4xl p-6">
-      <h1 className="mb-6 text-2xl font-bold text-gray-900">
-        Checkout
-      </h1>
+    // <main className="mx-auto max-w-4xl p-6">
+    //   <h1 className="mb-6 text-2xl font-bold text-gray-900">
+    //     Checkout
+    //   </h1>
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-        {/* Order Summary */}
-        <section className="rounded-xl border bg-white p-5 shadow-sm">
-          <h2 className="mb-4 text-lg font-semibold">
-            Order Summary
-          </h2>
+    //   <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+    //     {/* Order Summary */}
+    //     <section className="rounded-xl border bg-white p-5 shadow-sm">
+    //       <h2 className="mb-4 text-lg font-semibold">
+    //         Order Summary
+    //       </h2>
 
-          <div className="space-y-4">
-            {selectedItems.map(item => (
-              <div
-                key={item._id}
-                className="flex items-center justify-between gap-3"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="h-14 w-14 rounded bg-gray-100 p-1">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="h-full w-full object-contain"
-                    />
-                  </div>
+    //       <div className="space-y-4">
+    //         {selectedItems.map(item => (
+    //           <div
+    //             key={item._id}
+    //             className="flex items-center justify-between gap-3"
+    //           >
+    //             <div className="flex items-center gap-3">
+    //               <div className="h-14 w-14 rounded bg-gray-100 p-1">
+    //                 <img
+    //                   src={item.image}
+    //                   alt={item.name}
+    //                   className="h-full w-full object-contain"
+    //                 />
+    //               </div>
 
-                  <div>
-                    <p className="text-sm font-medium">
-                      {item.name}
-                    </p>
-                    <p className="text-xs text-gray-500">
-                      Qty: {item.quantity}
-                    </p>
-                  </div>
+    //               <div>
+    //                 <p className="text-sm font-medium">
+    //                   {item.name}
+    //                 </p>
+    //                 <p className="text-xs text-gray-500">
+    //                   Qty: {item.quantity}
+    //                 </p>
+    //               </div>
+    //             </div>
+
+    //             <p className="text-sm font-medium">
+    //               ₱{(item.price * item.quantity).toLocaleString()}
+    //             </p>
+    //           </div>
+    //         ))}
+    //       </div>
+
+    //       <div className="mt-6 flex justify-between border-t pt-4 text-base font-semibold">
+    //         <span>Total</span>
+    //         <span>₱{total.toLocaleString()}</span>
+    //       </div>
+    //     </section>
+
+    //     {/* Customer Info */}
+    //     <section className="rounded-xl border bg-white p-5 shadow-sm">
+    //       <h2 className="mb-4 text-lg font-semibold">
+    //         Customer Information
+    //       </h2>
+
+    //       <div className="space-y-3">
+    //         <input
+    //           name="firstName"
+    //           placeholder="First name *"
+    //           onChange={handleChange}
+    //           className="w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
+    //         />
+
+    //         <input
+    //           name="middleName"
+    //           placeholder="Middle name (optional)"
+    //           onChange={handleChange}
+    //           className="w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
+    //         />
+
+    //         <input
+    //           name="lastName"
+    //           placeholder="Last name *"
+    //           onChange={handleChange}
+    //           className="w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
+    //         />
+
+    //         <textarea
+    //           name="address"
+    //           placeholder="Address *"
+    //           rows={3}
+    //           onChange={handleChange}
+    //           className="w-full resize-none rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
+    //         />
+
+    //         <input
+    //           name="email"
+    //           placeholder="Email *"
+    //           onChange={handleChange}
+    //           className="w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
+    //         />
+
+    //         <input
+    //           name="contactNumber"
+    //           placeholder="Contact number *"
+    //           onChange={handleChange}
+    //           className="w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
+    //         />
+    //       </div>
+
+    //       <button
+    //         onClick={handleCheckout}
+    //         disabled={loading}
+    //         className="mt-6 w-full rounded-lg bg-black py-3 text-sm font-medium text-white transition hover:bg-gray-800 disabled:opacity-50"
+    //       >
+    //         {loading ? 'Redirecting…' : 'Proceed to Payment'}
+    //       </button>
+    //     </section>
+    //   </div>
+    // </main>
+//
+//
+//
+//NEW UI
+<main className="min-h-screen bg-neutral-50 py-20 px-6">
+  <div className="mx-auto max-w-6xl">
+
+    <h1 className="text-3xl font-bold tracking-tight mb-12">
+      Checkout
+    </h1>
+
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
+
+      {/* LEFT – CUSTOMER FORM */}
+      <section className="rounded-2xl border bg-white p-8 shadow-sm">
+
+        <h2 className="text-lg font-semibold mb-6">
+          Customer Information
+        </h2>
+
+        <div className="space-y-4">
+          {[
+            { name: 'firstName', placeholder: 'First name *' },
+            { name: 'middleName', placeholder: 'Middle name (optional)' },
+            { name: 'lastName', placeholder: 'Last name *' },
+            { name: 'email', placeholder: 'Email *' },
+            { name: 'contactNumber', placeholder: 'Contact number *' },
+          ].map(field => (
+            <input
+              key={field.name}
+              name={field.name}
+              placeholder={field.placeholder}
+              onChange={handleChange}
+              className="w-full rounded-xl border px-4 py-3 text-sm focus:ring-2 focus:ring-black focus:outline-none"
+            />
+          ))}
+
+          <textarea
+            name="address"
+            placeholder="Address *"
+            rows={4}
+            onChange={handleChange}
+            className="w-full rounded-xl border px-4 py-3 text-sm focus:ring-2 focus:ring-black focus:outline-none resize-none"
+          />
+        </div>
+
+        <button
+          onClick={handleCheckout}
+          disabled={loading}
+          className="mt-8 w-full rounded-xl bg-black py-4 text-white transition hover:bg-gray-800 disabled:opacity-50"
+        >
+          {loading ? 'Redirecting…' : 'Proceed to Payment'}
+        </button>
+
+      </section>
+
+      {/* RIGHT – SUMMARY */}
+      <section className="rounded-2xl border bg-white p-8 shadow-sm h-fit sticky top-24">
+
+        <h2 className="text-lg font-semibold mb-6">
+          Order Summary
+        </h2>
+
+        <div className="space-y-4">
+          {selectedItems.map(item => (
+            <div key={item._id} className="flex justify-between">
+              <div className="flex gap-3">
+                <div className="h-14 w-14 rounded-lg bg-gray-100 p-1">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="h-full w-full object-contain"
+                  />
                 </div>
-
-                <p className="text-sm font-medium">
-                  ₱{(item.price * item.quantity).toLocaleString()}
-                </p>
+                <div>
+                  <p className="text-sm font-medium">
+                    {item.name}
+                  </p>
+                  <p className="text-xs text-gray-500">
+                    Qty: {item.quantity}
+                  </p>
+                </div>
               </div>
-            ))}
-          </div>
+              <p className="text-sm font-medium">
+                ₱{(item.price * item.quantity).toLocaleString()}
+              </p>
+            </div>
+          ))}
+        </div>
 
-          <div className="mt-6 flex justify-between border-t pt-4 text-base font-semibold">
-            <span>Total</span>
-            <span>₱{total.toLocaleString()}</span>
-          </div>
-        </section>
+        <div className="border-t mt-6 pt-4 flex justify-between font-semibold text-lg">
+          <span>Total</span>
+          <span>₱{total.toLocaleString()}</span>
+        </div>
 
-        {/* Customer Info */}
-        <section className="rounded-xl border bg-white p-5 shadow-sm">
-          <h2 className="mb-4 text-lg font-semibold">
-            Customer Information
-          </h2>
+      </section>
 
-          <div className="space-y-3">
-            <input
-              name="firstName"
-              placeholder="First name *"
-              onChange={handleChange}
-              className="w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
-            />
+    </div>
+  </div>
+</main>
 
-            <input
-              name="middleName"
-              placeholder="Middle name (optional)"
-              onChange={handleChange}
-              className="w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
-            />
-
-            <input
-              name="lastName"
-              placeholder="Last name *"
-              onChange={handleChange}
-              className="w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
-            />
-
-            <textarea
-              name="address"
-              placeholder="Address *"
-              rows={3}
-              onChange={handleChange}
-              className="w-full resize-none rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
-            />
-
-            <input
-              name="email"
-              placeholder="Email *"
-              onChange={handleChange}
-              className="w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
-            />
-
-            <input
-              name="contactNumber"
-              placeholder="Contact number *"
-              onChange={handleChange}
-              className="w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
-            />
-          </div>
-
-          <button
-            onClick={handleCheckout}
-            disabled={loading}
-            className="mt-6 w-full rounded-lg bg-black py-3 text-sm font-medium text-white transition hover:bg-gray-800 disabled:opacity-50"
-          >
-            {loading ? 'Redirecting…' : 'Proceed to Payment'}
-          </button>
-        </section>
-      </div>
-    </main>
   )
 }
